@@ -19,4 +19,8 @@ class MyText{
   static String sendPassword = "Send password" ;
   static String forgotPassPage = "Enter your email below to receive your \n\n password reset instructions" ;
   static String doNotHaveAccount = "Don't have an account ?" ;
+  static String getInspiration = "Get inspiration for your next trip" ;
+  static String getInspirationText = "We’re happy to share our best tips for destinations where you can relax. But you find the nicest city trips as well!" ;
+  static String findBestText = "Find best place for your journey" ;
+  static String findBestDealsText = "Find best deals" ;
 }

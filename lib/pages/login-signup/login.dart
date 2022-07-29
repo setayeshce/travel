@@ -6,6 +6,7 @@ import 'package:travel/pages/login-signup/sign-up.dart';
 
 import '../../data/texts.dart';
 import '../../model/long-button.dart';
+import '../carousel-slider-pages/carouselPages.dart';
 import 'forgetPassword.dart';
 
 class Login extends StatefulWidget {
@@ -80,7 +81,15 @@ class _LoginState extends State<Login> {
                         style: const TextStyle(color: Colors.grey, fontSize: 14.0, fontWeight: FontWeight.bold),
                       )),
                 ),
-                LongBtn(func: () {}, text: MyText.login, btnColor: Colors.blue, textColor: Colors.white),
+                LongBtn(func: ()
+
+                {
+
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  CarouselPages()),
+                );
+                }, text: MyText.login, btnColor: Colors.blue, textColor: Colors.white),
                 const Spacer(),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: pageH! * 0.005),
