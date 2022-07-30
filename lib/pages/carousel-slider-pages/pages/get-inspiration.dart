@@ -45,9 +45,6 @@ class _GetInspirationState extends State<GetInspiration> {
               Expanded(
                 child: CarouselSlider(
                   options: CarouselOptions(
-                      reverse: true,
-                      enableInfiniteScroll: false,
-                      enlargeCenterPage: false,
                     viewportFraction: 0.4,
                     initialPage: 1
                   ),

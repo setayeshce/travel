@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:travel/pages/carousel-slider-pages/pages/find-best-place-page.dart';
 import 'package:travel/pages/carousel-slider-pages/pages/findBestDeals.dart';
 import 'package:travel/pages/carousel-slider-pages/pages/get-inspiration.dart';
+import 'package:travel/service/storage.dart';
+
+import '../../data/texts.dart';
+import '../../model/long-button.dart';
+import '../explore.dart';
 
 class CarouselPages extends StatefulWidget {
   CarouselPages({Key? key}) : super(key: key);
@@ -37,7 +42,9 @@ class _CarouselPagesState extends State<CarouselPages> {
                       options: CarouselOptions(
                           height: pageH! * 0.2,
                           viewportFraction: 0.99,
-                          reverse: true,
+                          reverse: false,
+                          initialPage: 0,
+                          enlargeCenterPage: true,
                           onPageChanged: (index, reason) {
                             setState(() {
                               _current = index;
@@ -45,25 +52,35 @@ class _CarouselPagesState extends State<CarouselPages> {
                           }),
                       items: imgList),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: imgList.asMap().entries.map((entry) {
-                    return GestureDetector(
-                      onTap: () => _controller.animateToPage(entry.key),
-                      child: Container(
-                        width: 12.0,
-                        height: 12.0,
-                        margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: (Theme.of(context).brightness == Brightness.dark
-                                ? Colors.grey
-                                : Colors.green)
-                                .withOpacity(_current == entry.key ? 0.9 : 0.4)),
-                      ),
-                    );
-                  }).toList(),
-                ),
+                (_current != 2)
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: imgList.asMap().entries.map((entry) {
+                          return GestureDetector(
+                              onTap: () => _controller.animateToPage(entry.key),
+                              child: Container(
+                                width: 12.0,
+                                height: 12.0,
+                                margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle, color: (Theme.of(context).brightness == Brightness.dark ? Colors.grey : Colors.green).withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                              ));
+                        }).toList(),
+                      )
+                    : Padding(
+                      padding:  EdgeInsets.only(bottom: pageW! * 0.025),
+                      child: LongBtn(
+                          func: () {
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Explore()),
+                            );
+                          },
+                          text: MyText.getStart,
+                          btnColor: Colors.blueGrey,
+                          textColor: Colors.white),
+                    ),
               ],
             )));
   }

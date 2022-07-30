@@ -35,7 +35,7 @@ class _FindBestPlacePageState extends State<FindBestPlacePage> {
                       ),)),
               ),
               Expanded(
-                child:  Image.asset(MyImages.imaeSlide2, fit: BoxFit.fitWidth, width: pageW),
+                child:  Image.asset(MyImages.imageSlide2, fit: BoxFit.fitWidth, width: pageW),
               ),
               SizedBox(
                   width: pageW! * 0.2,

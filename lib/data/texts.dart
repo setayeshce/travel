@@ -1,7 +1,7 @@
 class MyText{
   static String firstPageTitle = "Travel Guide" ;
   static String firstPageText = "Find Your Best Place For ..." ;
-  static String getStart = "getStart" ;
+  static String getStart = "get Start" ;
   static String haveAccount = "Already have an account?" ;
   static String login = "Log in" ;
   static String signUp = "sign up" ;
